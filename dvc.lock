@@ -1,0 +1,60 @@
+schema: '2.0'
+stages:
+  featurization:
+    cmd: python src/featurization.py
+    deps:
+    - path: data/raw
+      md5: 6222b93cf5694f9d4068e81d74772da3.dir
+      size: 393495073
+      nfiles: 1654
+    - path: src/featurization.py
+      md5: 6156205360f2785aba08a01e3aa1ab32
+      size: 15601
+    params:
+      params.yaml:
+        featurization.seed: 42
+    outs:
+    - path: data/features
+      md5: dd3c711524f097faa5bc9cabb51cb7a2.dir
+      size: 175374552
+      nfiles: 3
+  trainpredict:
+    cmd: python src/train_predict.py
+    deps:
+    - path: data/features
+      md5: dd3c711524f097faa5bc9cabb51cb7a2.dir
+      size: 175374552
+      nfiles: 3
+    - path: src/train_predict.py
+      md5: 2f901920736d85ae57763f8dc2c39bf0
+      size: 2433
+    params:
+      params.yaml:
+        trainpredict.seed: 2022
+        trainpredict.trials: 1
+    outs:
+    - path: data/models
+      md5: 9cb2ae378336fdff4ffb94519fc108e8.dir
+      size: 19864447
+      nfiles: 3
+    - path: data/subs
+      md5: e4e83f9b76dbeba9b93368343de984ba.dir
+      size: 26870
+      nfiles: 1
+  evaluation:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/features
+      md5: dd3c711524f097faa5bc9cabb51cb7a2.dir
+      size: 175374552
+      nfiles: 3
+    - path: src/evaluate.py
+      md5: 8b7d70fee0a254850533c3c3038f87d0
+      size: 4078
+    outs:
+    - path: data/plots.json
+      md5: 4a34f663e6edbad7ba7ffe982516aae3
+      size: 95193
+    - path: data/scores.json
+      md5: 870c6f1bdda5f9695cef3e7b53b8f893
+      size: 27

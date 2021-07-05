@@ -1,0 +1,32 @@
+stages:
+  featurization:
+    cmd: python src/featurization.py
+    deps:
+    - data/raw
+    - src/featurization.py
+    params:
+    - featurization.seed
+    outs:
+    - data/features
+  trainpredict:
+    cmd: python src/train_predict.py
+    deps:
+    - data/features
+    - src/train_predict.py
+    params:
+    - trainpredict.seed
+    - trainpredict.trials
+    outs:
+    - data/models
+    - data/subs
+  evaluation:
+    cmd: python src/evaluate.py
+    deps:
+    - data/features
+    - src/evaluate.py
+    metrics:
+    - data/scores.json:
+        cache: false
+    plots:
+    - data/plots.json:
+        cache: false

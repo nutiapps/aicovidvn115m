@@ -13,7 +13,6 @@ Our second place solution at aihub.vn.
     - raw
     - features
     - models
--logs
 
 ```
 

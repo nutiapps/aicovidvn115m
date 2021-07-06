@@ -74,13 +74,15 @@ Evaluation is used to check single score on cross validation folds of train data
 
 ### Extra information
 
-1. Total training and making predictions is about 2 hours.
+1. Total training and making predictions is about 2 hours (Macbook Pro quad-core core i5)
 - feature extraction: `825.07 seconds`
 - single model evaluation: `380.57 seconds`
 
 2. To update and add the resnet-based for the next phase.
 
 3. To add references of related works/papers/competitions.
+
+4. To add colab link to reproduce
 
 ### References
 

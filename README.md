@@ -60,7 +60,7 @@ data/scores.json  0.79949     0.89643
 
 7. fine tuning with `dvc exp run -S evaluation.model_index=1 -S evaluation.collection_index=2`
 
-8. run mutiplt exps at same time 
+8. run multiple exps at same time 
 - `dvc exp run --queue -S evaluation.model_index=0 -S evaluation.collection_index=2`
 - `dvc exp run --queue -S evaluation.model_index=0 -S evaluation.collection_index=3`
 - `dvc exp run --queue -S evaluation.model_index=0 -S evaluation.collection_index=5`

@@ -30,7 +30,7 @@ The experiment dag is
 ```
 Please follow these steps to reproduce:
 
-0. Make new venv `virtualenv venv`
+0. Clone this repo, go to inside and make new venv `virtualenv venv`
 2. Activate to new venv `source venv/bin/active`
 3. Install required packages/libs using `pip install -r requirements.txt`
 4. Set params `trainpredict.trials` to 20 in `params.yaml` file.

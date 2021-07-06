@@ -318,7 +318,7 @@ if __name__ == '__main__':
     seed=yaml.safe_load(open('params.yaml'))['featurization']['seed']
 
     Config.FEATURES_PATH.mkdir(parents=True, exist_ok=True)
-    model = hub.load("/Users/lap13493/vng/projects/experimental/audio/models/1")
+    model = hub.load('https://tfhub.dev/google/yamnet/1')
 
     # Start measuring time
     start_time = time.perf_counter()

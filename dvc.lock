@@ -4,9 +4,9 @@ stages:
     cmd: python src/featurization.py
     deps:
     - path: data/raw
-      md5: 6222b93cf5694f9d4068e81d74772da3.dir
-      size: 393495073
-      nfiles: 1654
+      md5: b0ba057757cf1cc5a1dda78f806d97ef.dir
+      size: 943518051
+      nfiles: 1657
     - path: src/featurization.py
       md5: 6156205360f2785aba08a01e3aa1ab32
       size: 15601
@@ -15,14 +15,14 @@ stages:
         featurization.seed: 42
     outs:
     - path: data/features
-      md5: dd3c711524f097faa5bc9cabb51cb7a2.dir
+      md5: f7ce0803c212fd38ef098edb5d59f93b.dir
       size: 175374552
       nfiles: 3
   trainpredict:
     cmd: python src/train_predict.py
     deps:
     - path: data/features
-      md5: dd3c711524f097faa5bc9cabb51cb7a2.dir
+      md5: f7ce0803c212fd38ef098edb5d59f93b.dir
       size: 175374552
       nfiles: 3
     - path: src/train_predict.py
@@ -38,23 +38,37 @@ stages:
       size: 19864447
       nfiles: 3
     - path: data/subs
-      md5: e4e83f9b76dbeba9b93368343de984ba.dir
-      size: 26870
+      md5: c297de7a15699f97d426bc94e74f0d6a.dir
+      size: 26879
       nfiles: 1
   evaluation:
     cmd: python src/evaluate.py
     deps:
     - path: data/features
-      md5: dd3c711524f097faa5bc9cabb51cb7a2.dir
+      md5: f7ce0803c212fd38ef098edb5d59f93b.dir
       size: 175374552
       nfiles: 3
     - path: src/evaluate.py
-      md5: 8b7d70fee0a254850533c3c3038f87d0
-      size: 4078
+      md5: 5c709c355e7edf81b08ff615c8973cfb
+      size: 7929
     outs:
-    - path: data/plots.json
-      md5: 4a34f663e6edbad7ba7ffe982516aae3
-      size: 95193
+    - path: data/prc.json
+      md5: e18304a692665a9ea04bb536165bc5d2
+      size: 82326
+    - path: data/roc.json
+      md5: 68f246a90ea643e608082d8f6eb6b43c
+      size: 43619
     - path: data/scores.json
-      md5: 870c6f1bdda5f9695cef3e7b53b8f893
-      size: 27
+      md5: 5230e662cc8d9731c5e5f606210c2135
+      size: 73
+  download:
+    cmd: python src/create_dataset.py
+    deps:
+    - path: src/create_dataset.py
+      md5: fdd600262c876d1e4cc79cbad8311d87
+      size: 1095
+    outs:
+    - path: data/raw
+      md5: b0ba057757cf1cc5a1dda78f806d97ef.dir
+      size: 943518051
+      nfiles: 1657

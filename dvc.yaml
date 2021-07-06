@@ -1,4 +1,10 @@
 stages:
+  download:
+    cmd: python src/create_dataset.py
+    deps:
+    - src/create_dataset.py
+    outs:
+    - data/raw
   featurization:
     cmd: python src/featurization.py
     deps:
@@ -28,5 +34,11 @@ stages:
     - data/scores.json:
         cache: false
     plots:
-    - data/plots.json:
+    - data/prc.json:
         cache: false
+        x: recall
+        y: precision
+    - data/roc.json:
+        cache: false
+        x: fpr
+        y: tpr

@@ -1,3 +1,4 @@
+![](https://img.shields.io/github/license/nutiapps/aicovidvn115m?style=plastic)
 # AICovidVN115m - 2nd place solution of warm up phase
 
 We build very simple and efficient models using trees and various sets of acoustic features. Due to small data and noise we aim to run multiple trials then average results to get the robust scores. 

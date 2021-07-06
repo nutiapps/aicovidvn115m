@@ -1,4 +1,3 @@
-![](https://img.shields.io/github/license/nutiapps/aicovidvn115m?style=plastic)
 # AICovidVN115m - 2nd place solution of warm up phase
 
 We build very simple and efficient models using trees and various sets of acoustic features. Due to small data and noise we aim to run multiple trials then average results to get the robust scores. 
@@ -68,6 +67,7 @@ data/scores.json  0.79949     0.89643
 - `dvc exp run --run-all --jobs 3`
 
 **NOTE**
+
 Evaluation is used to check single score on cross validation folds of train dataset. It's not used for making prediction. This is the end-to-end reproducible pipeline to make a submission on private test.
 
 ### Extra information

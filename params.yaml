@@ -2,7 +2,7 @@ featurization:
   seed: 42
 trainpredict:
   seed: 2022
-  trials: 20
+  trials: 1
 evaluation:
   seed: 2024
   trials: 1

@@ -20,6 +20,7 @@ class NearestNeighborsFeats(BaseEstimator, ClassifierMixin):
 
         self.eps = eps        
         self.n_classes_ = n_classes
+        self.n_classes = None
 
     def fit(self, X, y):
         '''

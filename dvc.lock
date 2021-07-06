@@ -42,20 +42,20 @@ stages:
     params:
       params.yaml:
         evaluation.cbt: 0.5
-        evaluation.collection_index: 2
+        evaluation.collection_index: 5
         evaluation.model_index: 1
         evaluation.n_est: 100
         evaluation.ss: 0.75
     outs:
     - path: data/prc.json
-      md5: d3bb059a68d39f8c5713c460ce53917f
-      size: 81528
+      md5: e18304a692665a9ea04bb536165bc5d2
+      size: 82326
     - path: data/roc.json
-      md5: d60524209e2671a8581e8b639b95e14a
-      size: 50218
+      md5: 68f246a90ea643e608082d8f6eb6b43c
+      size: 43619
     - path: data/scores.json
-      md5: 4da90db082a2aa50fd8c46606489ddc8
-      size: 72
+      md5: 5230e662cc8d9731c5e5f606210c2135
+      size: 73
   trainpredict:
     cmd: python src/train_predict.py
     deps:
@@ -69,13 +69,13 @@ stages:
     params:
       params.yaml:
         trainpredict.seed: 2022
-        trainpredict.trials: 1
+        trainpredict.trials: 20
     outs:
     - path: data/models
-      md5: 9cb2ae378336fdff4ffb94519fc108e8.dir
-      size: 19864447
-      nfiles: 3
+      md5: 29fa5fdabb0cbc1372d8b93e0c89170b.dir
+      size: 397909732
+      nfiles: 60
     - path: data/subs
-      md5: 5f2a223e76fed0f25b220a1dd563f7b8.dir
-      size: 26880
+      md5: f9e56c0df72b639e8c45ddc3364da34e.dir
+      size: 26860
       nfiles: 1

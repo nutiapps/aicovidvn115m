@@ -1,0 +1,74 @@
+schema: '2.0'
+stages:
+  download:
+    cmd: python src/create_dataset.py
+    deps:
+    - path: src/create_dataset.py
+      md5: fdd600262c876d1e4cc79cbad8311d87
+      size: 1095
+    outs:
+    - path: data/raw
+      md5: b0ba057757cf1cc5a1dda78f806d97ef.dir
+      size: 943518051
+      nfiles: 1657
+  featurization:
+    cmd: python src/featurization.py
+    deps:
+    - path: data/raw
+      md5: b0ba057757cf1cc5a1dda78f806d97ef.dir
+      size: 943518051
+      nfiles: 1657
+    - path: src/featurization.py
+      md5: 6156205360f2785aba08a01e3aa1ab32
+      size: 15601
+    params:
+      params.yaml:
+        featurization.seed: 42
+    outs:
+    - path: data/features
+      md5: 941d95e1b9eee1c133d10d5382954545.dir
+      size: 175374552
+      nfiles: 3
+  evaluation:
+    cmd: python src/evaluate.py
+    deps:
+    - path: data/features
+      md5: 941d95e1b9eee1c133d10d5382954545.dir
+      size: 175374552
+      nfiles: 3
+    - path: src/evaluate.py
+      md5: 5c709c355e7edf81b08ff615c8973cfb
+      size: 7929
+    outs:
+    - path: data/prc.json
+      md5: d3bb059a68d39f8c5713c460ce53917f
+      size: 81528
+    - path: data/roc.json
+      md5: d60524209e2671a8581e8b639b95e14a
+      size: 50218
+    - path: data/scores.json
+      md5: 4da90db082a2aa50fd8c46606489ddc8
+      size: 72
+  trainpredict:
+    cmd: python src/train_predict.py
+    deps:
+    - path: data/features
+      md5: 941d95e1b9eee1c133d10d5382954545.dir
+      size: 175374552
+      nfiles: 3
+    - path: src/train_predict.py
+      md5: 2f901920736d85ae57763f8dc2c39bf0
+      size: 2433
+    params:
+      params.yaml:
+        trainpredict.seed: 2022
+        trainpredict.trials: 1
+    outs:
+    - path: data/models
+      md5: 9cb2ae378336fdff4ffb94519fc108e8.dir
+      size: 19864447
+      nfiles: 3
+    - path: data/subs
+      md5: 5f2a223e76fed0f25b220a1dd563f7b8.dir
+      size: 26880
+      nfiles: 1

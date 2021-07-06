@@ -1,21 +1,36 @@
-# AICovidVN115m - 2nd place of warm up phase
+# AICovidVN115m - 2nd place solution of warm up phase
 
-Our second place solution at aihub.vn.
+We build very simple and efficient models using trees and various sets of acoustic features. Due to small data and noise we aim to run multiple trials then average results to get the robust scores. 
 
 ### Steps
 
+1. To install required packages/libs using `pip install -r requirements.txt`
+2. To reproduce full experiment simple adjust params `trials` to 20 and call `dvc repro`.
+
+The experiment dag is
+
 ```
-# 1. run download stage
-dvc run -n download \              
--d src/create_dataset.py -o data/raw \
-python src/create_dataset.py
+                +----------+                
+                | download |                
+                +----------+                
+                      *                     
+                      *                     
+                      *                     
+             +---------------+              
+             | featurization |              
+             +---------------+              
+              **            **              
+            **                **            
+          **                    **          
++--------------+            +------------+  
+| trainpredict |            | evaluation |  
++--------------+            +------------+  
 
-# 2. run featurization
-
-# 3. run train_predict
-
-# 4. run evaluate to see the local cv5 score
 ```
+
+3. total training and making predictions is about 2 hours.
+- feature extraction: `825.07 seconds`
+- single model evaluation: `380.57 seconds`
 
 ### License
 MIT

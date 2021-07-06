@@ -1,0 +1,16 @@
+numpy
+scipy
+pandas
+scikit_learn
+lightgbm
+xgboost
+tabulate
+yaml
+h5py
+joblib
+gdown
+librosa
+opensmile
+tensorflow_hub
+multiprocessing
+dvc

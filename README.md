@@ -30,17 +30,18 @@ The experiment dag is
 ```
 Please follow these steps to reproduce:
 
-1. Install required packages/libs using `pip install -r requirements.txt`
-2. Set params `trainpredict.trials` to 20 in `params.yaml` file.
-3. Activate to new venv `source venv/bin/active`
-4. Run command `dvc repro` and go to data/subs to get the zip file.
-5. Show experiment metric `dvc metrics show`
+0. Make new venv `virtualenv venv`
+2. Activate to new venv `source venv/bin/active`
+3. Install required packages/libs using `pip install -r requirements.txt`
+4. Set params `trainpredict.trials` to 20 in `params.yaml` file.
+5. Run command `dvc repro` and go to data/subs to get the zip file.
+6. (Optional) Show experiment metric `dvc metrics show`
 
 ```
 Path              avg_prec    roc_auc                                 
 data/scores.json  0.79949     0.89643
 ```
-6. Show experiment `dvc exp show --include-params evaluation.model_index,evaluation.collection_index`
+6. (Optional) Show experiment `dvc exp show --include-params evaluation.model_index,evaluation.collection_index`
 
 ```
 ┏━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━━┳━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┓
@@ -58,9 +59,9 @@ data/scores.json  0.79949     0.89643
 
 ```
 
-7. fine tuning with `dvc exp run -S evaluation.model_index=1 -S evaluation.collection_index=2`
+7. (Optional) fine tuning with `dvc exp run -S evaluation.model_index=1 -S evaluation.collection_index=2`
 
-8. run multiple exps at same time 
+8. (Optional) run multiple exps at same time 
 - `dvc exp run --queue -S evaluation.model_index=0 -S evaluation.collection_index=2`
 - `dvc exp run --queue -S evaluation.model_index=0 -S evaluation.collection_index=3`
 - `dvc exp run --queue -S evaluation.model_index=0 -S evaluation.collection_index=5`

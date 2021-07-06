@@ -37,8 +37,15 @@ stages:
       size: 175374552
       nfiles: 3
     - path: src/evaluate.py
-      md5: 5c709c355e7edf81b08ff615c8973cfb
-      size: 7929
+      md5: 1215908d58e96b3f41d295d4fa6f4c64
+      size: 7957
+    params:
+      params.yaml:
+        evaluation.cbt: 0.5
+        evaluation.collection_index: 2
+        evaluation.model_index: 1
+        evaluation.n_est: 100
+        evaluation.ss: 0.75
     outs:
     - path: data/prc.json
       md5: d3bb059a68d39f8c5713c460ce53917f

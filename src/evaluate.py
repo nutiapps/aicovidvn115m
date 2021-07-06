@@ -7,7 +7,6 @@ import json
 import h5py
 import math
 import yaml
-
 import xgboost as xgb
 import lightgbm as lgb
 from sklearn.ensemble import ExtraTreesClassifier
@@ -92,11 +91,11 @@ def fit_and_predict(model, X,y, X_test, columns, seed=42, is_single=False):
 if __name__ == '__main__':
     trial = yaml.safe_load(open('params.yaml'))['evaluation']['trials']
     seed = yaml.safe_load(open('params.yaml'))['evaluation']['seed']
-    model_index = yaml.safe_load(open('params.yaml'))['evaluation']['model_index']
-    collection_index = yaml.safe_load(open('params.yaml'))['evaluation']['collection_index']
-    n_est = yaml.safe_load(open('params.yaml'))['evaluation']['n_est']
-    cbt = yaml.safe_load(open('params.yaml'))['evaluation']['cbt']
-    ss = yaml.safe_load(open('params.yaml'))['evaluation']['ss']
+    model_index = int(yaml.safe_load(open('params.yaml'))['evaluation']['model_index'])
+    collection_index = int(yaml.safe_load(open('params.yaml'))['evaluation']['collection_index'])
+    n_est = int(yaml.safe_load(open('params.yaml'))['evaluation']['n_est'])
+    cbt = float(yaml.safe_load(open('params.yaml'))['evaluation']['cbt'])
+    ss = float(yaml.safe_load(open('params.yaml'))['evaluation']['ss'])
 
     # load feature
     if collection_index == 2:

@@ -30,6 +30,12 @@ stages:
     deps:
     - data/features
     - src/evaluate.py
+    params:
+    - evaluation.model_index
+    - evaluation.collection_index
+    - evaluation.n_est
+    - evaluation.cbt
+    - evaluation.ss
     metrics:
     - data/scores.json:
         cache: false

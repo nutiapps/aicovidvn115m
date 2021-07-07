@@ -65,6 +65,7 @@ if __name__ == '__main__':
 
 
     sub = pd.DataFrame({'uuid': uuids, 'assessment_result': a})
+    sub.uuid = sub.uuid.apply(lambda x: x[2:-2])
     sub.to_csv("results.csv", index=None)
     with zipfile.ZipFile(str(Config.SUBMISSION_PATH / "littlelamb-5x3-collection235-abc-trim-balanced-te-null-20.zip"), 'w') as zf:
         zf.write('results.csv')

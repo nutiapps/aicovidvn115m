@@ -19,22 +19,22 @@ stages:
       size: 943518051
       nfiles: 1657
     - path: src/featurization.py
-      md5: 6156205360f2785aba08a01e3aa1ab32
-      size: 15601
+      md5: 10963aeda77c6b94d4fdd1eb5c08b800
+      size: 15578
     params:
       params.yaml:
         featurization.seed: 42
     outs:
     - path: data/features
-      md5: 941d95e1b9eee1c133d10d5382954545.dir
-      size: 175374552
+      md5: 2dd5528a63e39bdac3f0b505a90a1d09.dir
+      size: 175604608
       nfiles: 3
   evaluation:
     cmd: python src/evaluate.py
     deps:
     - path: data/features
-      md5: 941d95e1b9eee1c133d10d5382954545.dir
-      size: 175374552
+      md5: 2dd5528a63e39bdac3f0b505a90a1d09.dir
+      size: 175604608
       nfiles: 3
     - path: src/evaluate.py
       md5: 1215908d58e96b3f41d295d4fa6f4c64
@@ -48,34 +48,34 @@ stages:
         evaluation.ss: 0.75
     outs:
     - path: data/prc.json
-      md5: e18304a692665a9ea04bb536165bc5d2
-      size: 82326
+      md5: a1b8db6077645a1b46d9d06b569064a7
+      size: 81597
     - path: data/roc.json
-      md5: 68f246a90ea643e608082d8f6eb6b43c
-      size: 43619
+      md5: 4604d6603f08d8ea7d9980972620a12f
+      size: 41548
     - path: data/scores.json
-      md5: 5230e662cc8d9731c5e5f606210c2135
+      md5: 7a4d39161aa25ce6f3bb68f7bd63a77a
       size: 73
   trainpredict:
     cmd: python src/train_predict.py
     deps:
     - path: data/features
-      md5: 941d95e1b9eee1c133d10d5382954545.dir
-      size: 175374552
+      md5: 2dd5528a63e39bdac3f0b505a90a1d09.dir
+      size: 175604608
       nfiles: 3
     - path: src/train_predict.py
-      md5: 2f901920736d85ae57763f8dc2c39bf0
-      size: 2433
+      md5: fe8ea351918ccb67794ed7f4a3c816c2
+      size: 2485
     params:
       params.yaml:
         trainpredict.seed: 2022
-        trainpredict.trials: 20
+        trainpredict.trials: 1
     outs:
     - path: data/models
-      md5: 29fa5fdabb0cbc1372d8b93e0c89170b.dir
-      size: 397909732
-      nfiles: 60
+      md5: 95bcc9cd99af53265293e7f3ddc18485.dir
+      size: 19867706
+      nfiles: 3
     - path: data/subs
-      md5: f9e56c0df72b639e8c45ddc3364da34e.dir
-      size: 26860
+      md5: ff21efbb4df934a978457c56e7b54b8f.dir
+      size: 25526
       nfiles: 1

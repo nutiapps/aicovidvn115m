@@ -64,18 +64,18 @@ stages:
       size: 175604608
       nfiles: 3
     - path: src/train_predict.py
-      md5: fe8ea351918ccb67794ed7f4a3c816c2
-      size: 2485
+      md5: ec892dd6740f8b8105b441a51a155734
+      size: 2488
     params:
       params.yaml:
         trainpredict.seed: 2022
-        trainpredict.trials: 1
+        trainpredict.trials: 20
     outs:
     - path: data/models
-      md5: 95bcc9cd99af53265293e7f3ddc18485.dir
-      size: 19867706
-      nfiles: 3
+      md5: e11b391d996a2220a404adc95a6bf0e7.dir
+      size: 397927344
+      nfiles: 60
     - path: data/subs
-      md5: ff21efbb4df934a978457c56e7b54b8f.dir
-      size: 25526
+      md5: e127947af3142a1ee22ce5668227b24c.dir
+      size: 25523
       nfiles: 1

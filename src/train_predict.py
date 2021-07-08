@@ -66,6 +66,6 @@ if __name__ == '__main__':
     sub = pd.read_csv(str(Config.ROOT_TEST_DIR / "private_test_sample_submissions.csv"))
     sub['assessment_result'] = a
     sub.to_csv("results.csv", index=None)
-    with zipfile.ZipFile(str(Config.SUBMISSION_PATH / "littlelamb-5x3-collection235-trim-balanced-te-null-1.zip"), 'w') as zf:
+    with zipfile.ZipFile(str(Config.SUBMISSION_PATH / f"littlelamb-5x3-collection235-trim-balanced-te-null-{N}.zip"), 'w') as zf:
         zf.write('results.csv')
     os.remove('results.csv')

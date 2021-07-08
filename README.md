@@ -84,6 +84,8 @@ Evaluation is used to check single score on cross validation folds of train data
 
 4. To run on Google Colab (~30 minutes for single trial) [![Open In Colab](https://colab.research.google.com/assets/colab-badge.svg)](https://colab.research.google.com/github/nutiapps/aicovidvn115m/blob/master/colab_reproduce.ipynb)
 
+5. ![Score by trials](report/scorebytrials.png)
+
 ### References
 
 1. ![Yamnet](https://tfhub.dev/google/yamnet/1)

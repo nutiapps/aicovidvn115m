@@ -6,6 +6,10 @@ We build very simple and efficient models using trees and various sets of acoust
 
 Please go to this site: https://www.covid.aihub.vn/
 
+### Prize
+We donated the prize ($3M VND) to BONG SEN for COM NU CUOI. Please check the receipt in the report folder.
+
+
 ### Usage
 
 The experiment dag is
@@ -90,6 +94,7 @@ Evaluation is used to check single score on cross validation folds of train data
 
 1. ![Yamnet](https://tfhub.dev/google/yamnet/1)
 2. ![Opensmile](https://audeering.github.io/opensmile/about.html)
+3. ![EPFL](https://coughvid.epfl.ch/)
 
 ### License
 MIT
